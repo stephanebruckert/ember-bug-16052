@@ -13,10 +13,14 @@ moduleForComponent('show-dummy', 'Integration | Component | show dummy', {
 });
 
 test('it renders', function(assert) {
-  let dummies = server.createList('dummy', 3);
-  this.set('dummies', dummies);
+  let dummy = server.create('dummy');
+  server.create('sub', {
+    dummy
+  });
 
-  this.render(hbs`{{show-dummy model=dummies}}`);
+  this.set('dummy', dummy);
 
-  assert.equal(this.$().text().trim(), 'There are 3 dummies');
+  this.render(hbs`{{show-dummy model=dummy}}`);
+
+  assert.equal(this.$().text().trim(), 'Hi! There are 1 sub-dummies');
 });

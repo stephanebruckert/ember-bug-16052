@@ -1,12 +1,10 @@
 import Component from '@ember/component';
-
-import Ember from 'ember';
-
-const { computed } = Ember;
+import { computed } from '@ember/object';
 
 export default Component.extend({
-  dummies: computed.filter('model', function() {
-    debugger
-    return this.get('model');
+  filteredSubs: computed.filter('model.subs', function() {
+    // this will always return true in development
+    // but will return false in the tests because this === undefined
+    return this;
   })
 });

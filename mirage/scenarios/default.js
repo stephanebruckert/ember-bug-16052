@@ -1,3 +1,6 @@
 export default function(server) {
-  server.create('dummy');
+  let dummy = server.create('dummy');
+  server.create('sub', {
+    dummy
+  });
 }

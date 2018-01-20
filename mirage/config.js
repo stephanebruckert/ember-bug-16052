@@ -1,6 +1,6 @@
 export default function() {
   this.passthrough();
 
-  // Inventories
-  this.get('/dummies');
+  this.get('/dummies/:id');
+  this.get('/subs/:id');
 }

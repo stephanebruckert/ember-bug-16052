@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
-const { Model, hasMany } = DS;
+const { Model, belongsTo } = DS;
 
 export default Model.extend({
-  subs: hasMany('sub')
+  dummy: belongsTo('dummy')
 });
